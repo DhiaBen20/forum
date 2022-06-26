@@ -5,6 +5,7 @@ use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\FavoriteReplyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThreadSubscriptionController;
+use App\Http\Controllers\UserNotificationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,5 +44,6 @@ Route::delete('threads/{thread}/subscriptions', [ThreadSubscriptionController::c
 Route::delete('threads/{channel:slug}/{thread}', [ThreadController::class, 'destroy'])->middleware('auth')->name('threads.destroy')->scopeBindings();
 
 Route::get('profiles/{user:name}', [ProfileController::class, 'show']);
+Route::delete('profiles/{user:name}/notifications/{notification}', [UserNotificationsController::class, 'destroy'])->middleware('auth');
 
 require __DIR__ . '/auth.php';

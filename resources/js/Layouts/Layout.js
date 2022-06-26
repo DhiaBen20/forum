@@ -3,6 +3,7 @@ import NavLink from "@/Components/NavLink";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import Dropdown from "@/Components/Dropdown";
 import { useEffect, useState } from "react";
+import NotificationDropdown from "@/Components/NotificationDropdown";
 
 function Navbar() {
     let { auth, channels } = usePage().props;
@@ -122,10 +123,11 @@ function Navbar() {
                                         </NavLink>
                                     </>
                                 ) : (
-                                    <div className="flex items-center">
+                                    <div className="flex items-center space-x-3">
+                                        {auth.user && <NotificationDropdown />}
                                         <Dropdown>
                                             <Dropdown.Trigger>
-                                                <button className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 flex items-center">
+                                                <button className="px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 flex items-center">
                                                     {auth.user.name}
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"

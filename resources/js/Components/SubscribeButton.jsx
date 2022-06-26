@@ -18,7 +18,7 @@ function SubscribeButton({ isSubscribed, setIsSubscribed, id }) {
             }`}
             onClick={handleClick}
         >
-            Subscribe to thread
+            {isSubscribed ? "Unsubscribe from thread" : "Subscribe to thread"}
         </button>
     );
 }

@@ -13,6 +13,8 @@ class Reply extends Model
 
     protected $appends = ['isFavorited', 'favoritesCount'];
 
+    protected $touches = ['thread'];
+
     public function owner()
     {
         return $this->belongsTo(User::class);

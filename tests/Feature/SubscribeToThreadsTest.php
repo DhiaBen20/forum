@@ -25,32 +25,20 @@ class SubscribeToThreadsTest extends TestCase
 
         $this->post("threads/{$thread->id}/subscriptions");
 
-        $this->assertDatabaseHas('thread_subscriptions', [
-            'thread_id' => $thread->id,
-            'user_id' => auth()->id(),
-        ]);
+        $this->assertCount(1, $thread->subscriptions);
     }
 
     /** @test */
     public function an_authenticated_user_can_unsubscribe_from_a_thread()
     {
-        
         $this->signIn();
 
         $thread = $this->create(Thread::class);
 
         $this->post("threads/{$thread->id}/subscriptions");
-
-        $this->assertDatabaseHas('thread_subscriptions', [
-            'thread_id' => $thread->id,
-            'user_id' => auth()->id(),
-        ]);
+        $this->assertCount(1, $thread->subscriptions);
 
         $this->delete("threads/{$thread->id}/subscriptions");
-
-        $this->assertDatabaseMissing('thread_subscriptions', [
-            'thread_id' => $thread->id,
-            'user_id' => auth()->id(),
-        ]);
+        $this->assertCount(0, $thread->fresh()->subscriptions);
     }
 }

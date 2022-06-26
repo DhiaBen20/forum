@@ -51,4 +51,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Activity::class);
     }
+
+    // public function subscriptions()
+    // {
+    //     return $this->hasMany(ThreadSubscription::class);
+    // }
+
+    public function visits($thread)
+    {
+        ThreadVisit::create([
+            'user_id' => $this->id,
+            'thread_id' => $thread->id
+        ]);
+    }
 }

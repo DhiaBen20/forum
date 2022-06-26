@@ -11,7 +11,7 @@ class ReplyController extends Controller
     {
         request()->validate(['body' => 'required|min:3']);
 
-        $thread->replies()->create([
+        $thread->addReply([
             'body' => request('body'),
             'owner_id' => auth()->id()
         ]);

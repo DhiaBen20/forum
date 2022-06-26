@@ -45,7 +45,8 @@ class HandleInertiaRequests extends Middleware
             'channels' => Channel::all(),
             'flash' => [
                 'message' => fn () => $request->session()->get('flash')
-            ]
+            ],
+            'notifications' => auth()->check() ? auth()->user()->unreadNotifications : null
         ]);
     }
 }

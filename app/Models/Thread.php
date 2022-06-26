@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\ThreadWasUpdated;
 use App\RecordsActivity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -69,5 +70,24 @@ class Thread extends Model
     public function getIsSubscribedToAttribute()
     {
         return !!$this->subscriptions()->where('user_id', auth()->id())->count();
+    }
+
+    public function addReply($attributes)
+    {
+        $reply = $this->replies()->create($attributes);
+
+        $this->subscriptions()
+            ->where('user_id', '!=', $reply->owner_id)
+            ->with('user')
+            ->get()
+            ->each
+            ->notify($this, $reply);
+
+        return $reply;
+    }
+
+    public function visits()
+    {
+        return $this->hasMany(ThreadVisit::class);
     }
 }

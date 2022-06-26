@@ -6,8 +6,10 @@ use App\Models\Reply;
 use App\Models\Thread;
 use App\Models\User;
 use App\Models\Channel;
+use App\Notifications\ThreadWasUpdated;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 
 class ThreadTest extends TestCase
 {
@@ -71,5 +73,24 @@ class ThreadTest extends TestCase
             0,
             $thread->subscriptions()->where('user_id', auth()->id())->get()
         );
+    }
+
+    /** @test */
+    public function a_thread_notifies_all_registered_subscribers_when_a_reply_is_added()
+    {
+        Notification::fake();
+
+        $user = $this->create(User::class);
+
+        $thread = $this->create(Thread::class);
+
+        $thread->subscribe($user->id);
+
+        $thread->addReply([
+            'owner_id' => 2,
+            'body' => 'leave a reply'
+        ]);
+
+        Notification::assertSentTo($user, ThreadWasUpdated::class);
     }
 }
