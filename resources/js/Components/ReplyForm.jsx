@@ -1,4 +1,4 @@
-import { Link, useForm, usePage } from "@inertiajs/inertia-react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import Button from "./Button";
 import Label from "./Label";
 import Textarea from "./Textarea";

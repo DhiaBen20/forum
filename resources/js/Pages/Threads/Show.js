@@ -2,7 +2,7 @@ import Pagination from "@/Components/Pagination";
 import Reply from "@/Components/Reply";
 import ReplyForm from "@/Components/ReplyForm";
 import ThreadDropdown from "@/Components/ThreadDropdown";
-import { Link } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/react";
 import moment from "moment";
 
 function Show({ thread, channel, replies }) {

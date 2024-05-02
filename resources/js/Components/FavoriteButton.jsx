@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/inertia-react";
+import { useForm } from "@inertiajs/react";
 import { useState } from "react";
 import { HeartIcon, SolidHeartIcon } from "./icons";
 

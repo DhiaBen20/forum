@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/inertia-react";
+import { useForm } from "@inertiajs/react";
 
 function SubscribeButton({ isSubscribed, setIsSubscribed, id }) {
     let { post, delete: destroy } = useForm();

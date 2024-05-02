@@ -1,4 +1,4 @@
-import { Link, useForm, usePage } from "@inertiajs/inertia-react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import Dropdown from "./Dropdown";
 import { SolidBellIcon } from "./icons";
 

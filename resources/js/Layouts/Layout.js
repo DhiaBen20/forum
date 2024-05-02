@@ -1,6 +1,6 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import NavLink from "@/Components/NavLink";
-import { Link, usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/react";
 import Dropdown from "@/Components/Dropdown";
 import { useEffect, useState } from "react";
 import NotificationDropdown from "@/Components/NotificationDropdown";

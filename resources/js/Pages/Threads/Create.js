@@ -2,7 +2,7 @@ import Button from "@/Components/Button";
 import Input from "@/Components/Input";
 import Label from "@/Components/Label";
 import Textarea from "@/Components/Textarea";
-import { useForm } from "@inertiajs/inertia-react";
+import { useForm } from "@inertiajs/react";
 
 function ErrorMessage({ children }) {
     return (
