@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +14,7 @@
 
 
     <!-- Scripts -->
-    @routes
+    @routes(nonce: Vite::cspNonce())
     @viteReactRefresh
     @vite('resources/js/app.jsx')
     @inertiaHead
