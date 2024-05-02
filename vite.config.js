@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
     plugins: [
-        laravel(["resources/css/app.css", "resources/js/app.js"]),
+        laravel(["resources/js/app.jsx"]),
         react(),
     ],
     resolve: {
