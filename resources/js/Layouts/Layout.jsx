@@ -191,13 +191,17 @@ function Flash({ message }) {
     );
 }
 
-function Layout(page) {
+function Layout({ children }) {
+    const page = usePage()
+    
     let message = page.props.flash.message;
 
     return (
         <div>
             <Navbar />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{page}</div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {children}
+            </div>
             <Flash message={page.props.flash.message} />
         </div>
     );

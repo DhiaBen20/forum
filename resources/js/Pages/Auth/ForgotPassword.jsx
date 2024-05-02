@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '@/Components/Button';
 import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';

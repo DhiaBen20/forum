@@ -1,7 +1,6 @@
 import { Link } from "@inertiajs/react";
 
 function Index({ threads }) {
-    console.log(threads);
     return (
         <div className="space-y-4">
             <h2 className="font-semibold text-2xl mt-10 mb-8">

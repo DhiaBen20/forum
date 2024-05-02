@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '@/Components/Button';
 import Guest from '@/Layouts/Guest';
 import { Head, Link, useForm } from '@inertiajs/react';

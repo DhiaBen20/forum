@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function ValidationErrors({ errors }) {
     return (
         Object.keys(errors).length > 0 && (

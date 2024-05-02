@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// upgrade to typescript
+
 Route::get('/', function () {
     return redirect('threads');
 });
